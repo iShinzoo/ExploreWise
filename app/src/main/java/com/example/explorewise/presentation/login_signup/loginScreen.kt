@@ -15,10 +15,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
@@ -52,12 +52,20 @@ import com.example.explorewise.ui.theme.headingFamily
 @Composable
 fun loginScreen() {
 
+
+    // remember keyword is used to store/remember the value in case recompose is called
+    // mutableStateOf() is used to state that the value can be changed
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordHidden by remember { mutableStateOf(true) }
 
+
+
     Box(modifier = Modifier
         .background(Color.White)){
+
+
 
         Image(
             painter = painterResource(id = R.drawable.login),
@@ -68,12 +76,16 @@ fun loginScreen() {
             contentScale = ContentScale.Fit
         )
 
+
+
         Column(
             modifier = Modifier
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+
+
 
             Text(
                 text = "ExploreWise",
@@ -84,45 +96,65 @@ fun loginScreen() {
                 fontFamily = headingFamily
             )
 
+
+
             Spacer(modifier = Modifier.height(30.dp))
+
+
 
             OutlinedTextField(
                 modifier = Modifier.width(300.dp),
+
                 value = email,
+
                 onValueChange = {email = it},
+
                 leadingIcon = {
                     Icon(Icons.Default.Email, contentDescription = null)
                 },
+
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Password
                 ),
+
                 placeholder = {
                     Text(text = "Email",
                         color = colorResource(id = R.color.textColor)
                     )},
+
                 singleLine = true
                 )
 
+
+
             Spacer(modifier = Modifier.height(18.dp))
+
+
 
             OutlinedTextField(
                 modifier = Modifier.width(300.dp),
+
                 value = password,
+
                 onValueChange = {password = it},
+
                 placeholder = {
                     Text(text = "Password",
                         color = colorResource(id = R.color.textColor)
                     )},
+
                 singleLine = true,
+
                 leadingIcon = {
                     Icon(Icons.Default.Lock, contentDescription = null)
                 },
+
                 trailingIcon =  {
                     IconButton(onClick = { passwordHidden = !passwordHidden }) {
 
                         val visibilityIcon =
 
-                            if (passwordHidden) Icons.Default.Face else Icons.Default.AccountCircle
+                            if (passwordHidden) Icons.Default.VisibilityOff else Icons.Default.Visibility
 
                         val description = if (passwordHidden)  "Show Password" else "Hide Password"
 
@@ -130,13 +162,23 @@ fun loginScreen() {
 
                     }
                 },
+
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Password
                 ),
+
                 visualTransformation = if (passwordHidden) PasswordVisualTransformation() else VisualTransformation.None
+
+                // visual Transformation is used for formatting and transforimg Textfeild input
             )
 
+
+
+
             Spacer(modifier = Modifier.height(18.dp))
+
+
+
 
             ElevatedButton(
                 onClick = { /*TODO*/ },
@@ -153,7 +195,11 @@ fun loginScreen() {
                 )
             }
 
+
+
             Spacer(modifier = Modifier.height(12.dp))
+
+
 
             OutlinedButton(
                 onClick = { /*TODO*/ },
@@ -170,7 +216,11 @@ fun loginScreen() {
                 )
             }
 
+
+
             Spacer(modifier = Modifier.height(12.dp))
+
+
 
             Text(
                 text = "-------------------OR---------------------",
@@ -179,6 +229,8 @@ fun loginScreen() {
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
+
+
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -189,6 +241,8 @@ fun loginScreen() {
                 border = BorderStroke( width = 2.dp , color = colorResource(id = R.color.textColor))
             ) {
 
+
+
                 Image(
                     painter = painterResource(id = R.drawable.google),
                     contentDescription = null,
@@ -198,6 +252,8 @@ fun loginScreen() {
                     contentScale = ContentScale.Fit
                 )
 
+
+                
                 Text(
                     text = "SignIn with Google",
                     modifier = Modifier,
@@ -211,10 +267,6 @@ fun loginScreen() {
     }
 
 }
-
-
-
-
 
 
 @Preview

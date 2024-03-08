@@ -20,6 +20,8 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
@@ -143,7 +145,7 @@ fun signupScreen() {
 
                         val visibilityIcon =
 
-                            if (passwordHidden) Icons.Default.Face else Icons.Default.AccountCircle
+                            if (passwordHidden) Icons.Default.VisibilityOff else Icons.Default.Visibility
 
                         val description = if (passwordHidden)  "Show Password" else "Hide Password"
 

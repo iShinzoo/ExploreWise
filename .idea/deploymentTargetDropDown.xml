@@ -11,6 +11,9 @@
       <entry key="loginSignupScreenPreview">
         <State />
       </entry>
+      <entry key="signupScreenPreview">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

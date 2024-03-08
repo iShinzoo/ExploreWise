@@ -3,21 +3,40 @@ package com.example.explorewise
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.core.view.WindowCompat
+import com.example.explorewise.presentation.login_signup.loginScreen
 import com.example.explorewise.ui.theme.ExploreWiseTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // WindowCompat.setDecorFitsSystemWindows(window,false) is used to allow to disable the navigation of
+        // a device
+
+        WindowCompat.setDecorFitsSystemWindows(window,false)
+
         setContent {
             ExploreWiseTheme {
 
+                // sideEffect(setStatusBarColor) is used to customize the status bar of a Device
+                // but before this you need to Do Dynamic Color value to false in Theme.kt
+
+                val  systemController = rememberSystemUiController()
+                val isSystemInDarkMode = isSystemInDarkTheme()
+
+                SideEffect {
+                    systemController.setStatusBarColor(
+                        color = Color.Transparent,
+                        darkIcons = !isSystemInDarkMode
+                    )
+                }
+
+                loginScreen()
 
             }
         }
