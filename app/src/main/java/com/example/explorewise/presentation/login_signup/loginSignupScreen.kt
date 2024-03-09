@@ -26,18 +26,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.explorewise.Navigation.Route
 import com.example.explorewise.R
 import com.example.explorewise.ui.theme.ExploreWiseTheme
 import com.example.explorewise.ui.theme.headingFamily
 
 
 @Composable
-fun loginSignupScreen(){
+fun loginSignupScreen(
+    navController: NavController
+){
 
 
 
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(Color.White)
         ){
 
@@ -92,7 +98,9 @@ fun loginSignupScreen(){
             Spacer(modifier = Modifier.height(40.dp))
 
             ElevatedButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                          navController.navigate(route = Route.LoginScreen.route)
+                },
                 modifier = Modifier.width(400.dp),
                 colors = ButtonDefaults.elevatedButtonColors(colorResource(id = R.color.textColor))
             ) {
@@ -109,7 +117,9 @@ fun loginSignupScreen(){
             Spacer(modifier = Modifier.height(12.dp))
 
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(route = Route.SignupScreen.route)
+                },
                 modifier = Modifier.width(400.dp),
                 border = BorderStroke( width = 2.dp , color = colorResource(id = R.color.textColor))
                 ) {
@@ -133,6 +143,6 @@ fun loginSignupScreen(){
 @Composable
 fun loginSignupScreenPreview(){
     ExploreWiseTheme {
-        loginSignupScreen()
+        loginSignupScreen( navController =  rememberNavController())
     }
 }

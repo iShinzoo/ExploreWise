@@ -7,6 +7,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
+import com.example.explorewise.Navigation.NavGraph
 import com.example.explorewise.presentation.login_signup.loginScreen
 import com.example.explorewise.ui.theme.ExploreWiseTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
-                loginScreen()
+                NavGraph()
 
             }
         }

@@ -47,13 +47,18 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.explorewise.Navigation.Route
 import com.example.explorewise.R
 import com.example.explorewise.ui.theme.ExploreWiseTheme
 import com.example.explorewise.ui.theme.headingFamily
 
 
 @Composable
-fun signupScreen() {
+fun signupScreen(
+    navController: NavController
+) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -179,7 +184,11 @@ fun signupScreen() {
             Spacer(modifier = Modifier.height(12.dp))
 
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(route = Route.LoginScreen.route){
+                        popUpTo(Route.LoginSignupScreen.route)
+                    }
+                },
                 modifier = Modifier.width(300.dp),
                 border = BorderStroke( width = 2.dp , color = colorResource(id = R.color.textColor))
             ) {
@@ -206,6 +215,6 @@ fun signupScreen() {
 @Composable
 fun signupScreenPreview(){
     ExploreWiseTheme {
-        signupScreen()
+        signupScreen( navController =  rememberNavController())
     }
 }

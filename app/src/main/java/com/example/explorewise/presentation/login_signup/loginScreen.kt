@@ -44,13 +44,18 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.explorewise.Navigation.Route
 import com.example.explorewise.R
 import com.example.explorewise.ui.theme.ExploreWiseTheme
 import com.example.explorewise.ui.theme.headingFamily
 
 
 @Composable
-fun loginScreen() {
+fun loginScreen(
+    navController: NavController
+) {
 
 
     // remember keyword is used to store/remember the value in case recompose is called
@@ -202,7 +207,11 @@ fun loginScreen() {
 
 
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(route = Route.SignupScreen.route){
+                        popUpTo(Route.LoginSignupScreen.route)
+                    }
+                },
                 modifier = Modifier.width(300.dp),
                 border = BorderStroke( width = 2.dp , color = colorResource(id = R.color.textColor))
             ) {
@@ -263,6 +272,35 @@ fun loginScreen() {
                     fontFamily = headingFamily
                 )
             }
+
+            OutlinedButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.width(300.dp),
+                border = BorderStroke( width = 2.dp , color = colorResource(id = R.color.textColor))
+            ) {
+
+
+
+                Image(
+                    painter = painterResource(id = R.drawable.facebook),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(20.dp)
+                        .padding(end = 6.dp),
+                    contentScale = ContentScale.Fit
+                )
+
+
+
+                Text(
+                    text = "SignIn with Facebook",
+                    modifier = Modifier,
+                    color = colorResource(id = R.color.textColor),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = headingFamily
+                )
+            }
         }
     }
 
@@ -273,6 +311,6 @@ fun loginScreen() {
 @Composable
 fun loginScreenPreview(){
     ExploreWiseTheme {
-        loginScreen()
+        loginScreen( navController =  rememberNavController())
     }
 }
