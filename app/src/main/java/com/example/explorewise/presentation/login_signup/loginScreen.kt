@@ -77,7 +77,7 @@ fun loginScreen(
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 60.dp),
+                .padding(top = 30.dp),
             contentScale = ContentScale.Fit
         )
 
