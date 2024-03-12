@@ -186,7 +186,9 @@ fun loginScreen(
 
 
             ElevatedButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(route = Route.MapScreen.route)
+                },
                 modifier = Modifier.width(300.dp),
                 colors = ButtonDefaults.elevatedButtonColors(colorResource(id = R.color.textColor))
             ) {

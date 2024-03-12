@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.explorewise.presentation.login_signup.loginScreen
 import com.example.explorewise.presentation.login_signup.loginSignupScreen
 import com.example.explorewise.presentation.login_signup.signupScreen
+import com.example.explorewise.presentation.map.map
 
 
 @Composable
@@ -35,6 +36,12 @@ fun NavGraph(
             route = Route.SignupScreen.route
         ){
             signupScreen(navController = navController)
+        }
+
+        composable(
+            route = Route.MapScreen.route
+        ){
+            map(navController = navController)
         }
 
     }

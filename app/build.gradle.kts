@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.googleAndroidLibrariesMapsplatformSecretsGradlePlugin)
 }
 
 android {
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -59,6 +61,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.play.services.maps)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -74,5 +79,9 @@ dependencies {
     implementation ("androidx.compose.material:material-icons-extended:1.7.0-alpha04")
 
     // Compose Navigation
-    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha03")
+    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha04")
+
+    // Google maps
+    implementation ("com.google.maps.android:maps-compose:4.3.3")
+    implementation ("com.google.maps.android:maps-compose-utils:4.3.3")
 }

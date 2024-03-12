@@ -10,4 +10,6 @@ sealed class Route (
 
     data object LoginSignupScreen : Route(route = "loginSignupScreen")
 
+    data object MapScreen : Route(route = "mapScreen")
+
 }
