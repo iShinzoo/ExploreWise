@@ -35,7 +35,7 @@ import com.example.explorewise.ui.theme.headingFamily
 
 
 @Composable
-fun loginSignupScreen(
+fun LoginSignupScreen(
     navController: NavController
 ){
 
@@ -141,8 +141,8 @@ fun loginSignupScreen(
 
 @Preview
 @Composable
-fun loginSignupScreenPreview(){
+fun LoginSignupScreenPreview(){
     ExploreWiseTheme {
-        loginSignupScreen( navController =  rememberNavController())
+        LoginSignupScreen( navController =  rememberNavController())
     }
 }

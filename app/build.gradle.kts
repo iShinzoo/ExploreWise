@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.tv.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -76,12 +77,34 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
 
     //material icon extended library
-    implementation ("androidx.compose.material:material-icons-extended:1.7.0-alpha04")
+    implementation ("androidx.compose.material:material-icons-extended:1.7.0-alpha05")
 
     // Compose Navigation
-    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha04")
+    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha05")
 
     // Google maps
     implementation ("com.google.maps.android:maps-compose:4.3.3")
     implementation ("com.google.maps.android:maps-compose-utils:4.3.3")
+
+    // new Splash Screen API
+    implementation ("androidx.core:core-splashscreen:1.1.0-alpha02")
+
+    // kotlin coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.0-alpha03")
+
+    // pager
+    implementation ("com.google.accompanist:accompanist-pager:0.34.0")
+
+    // carousel
+    implementation ("com.google.android.material:material:1.11.0")
+
+    // coil library for image
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    implementation ("androidx.compose.material3:material3:1.2.1")
+    implementation ("androidx.compose.ui:ui:1.6.4")
+    implementation ("androidx.compose.ui:ui-tooling:1.6.4")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.6.4")
 }

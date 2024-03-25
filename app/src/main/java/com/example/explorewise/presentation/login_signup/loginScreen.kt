@@ -174,7 +174,7 @@ fun loginScreen(
 
                 visualTransformation = if (passwordHidden) PasswordVisualTransformation() else VisualTransformation.None
 
-                // visual Transformation is used for formatting and transforimg Textfeild input
+                // visual Transformation is used for formatting and transforming Textfield input
             )
 
 
